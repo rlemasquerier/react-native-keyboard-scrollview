@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { TextInput } from './components/TextInput';
 import { ContentCard } from './components/ContentCard';
+import { KeyboardScrollView } from 'react-native-keyboard-scrollview';
 
 export default function App() {
   return (
@@ -10,11 +11,14 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.headerText}>Example app</Text>
       </View>
-      <ScrollView contentContainerStyle={styles.container}>
+      <KeyboardScrollView
+        contentContainerStyle={styles.container}
+        additionalScrollHeight={20}
+      >
         <ContentCard />
         <ContentCard />
         <TextInput />
-      </ScrollView>
+      </KeyboardScrollView>
     </View>
   );
 }
