@@ -1210,11 +1210,6 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.49.0.tgz#86f79756004a97fa4df866835093f1df3d03c333"
   integrity sha512-1S8uAY/MTJqVx0SC4epBq+N2yhuwtNwLbJYNZyhL2pO1ZVKn5HFXav5T41Ryzy9K9V7ZId2JB2oy/W4aCd9/2w==
 
-"@evilmartians/lefthook@^1.2.2":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@evilmartians/lefthook/-/lefthook-1.5.0.tgz#d0a7fdf77aed0366809eb2a05d377b28852dab3e"
-  integrity sha512-lyHwJk0P2MULulbjQngUyay+uNxIKS/5UOMbhgj8uesi4Q2gMOlhixDZ16rXOiZWFd6IZtBAEpInF0H27sAt+g==
-
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
