@@ -26,11 +26,13 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
+    flexGrow: 1,
   },
   header: {
     justifyContent: 'center',
     padding: 16,
     height: 120,
+    borderBottomWidth: 1,
   },
   headerText: {
     fontSize: 24,

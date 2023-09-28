@@ -5,13 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import {
-  Keyboard,
-  ScrollView,
-  TextInput,
-  StatusBar,
-  StyleSheet,
-} from 'react-native';
+import { Keyboard, ScrollView, TextInput, StatusBar } from 'react-native';
 
 interface Props extends React.ComponentProps<typeof ScrollView> {
   additionalScrollHeight?: number;
@@ -20,6 +14,7 @@ interface Props extends React.ComponentProps<typeof ScrollView> {
 export const KeyboardScrollView = ({
   children,
   additionalScrollHeight,
+  contentContainerStyle,
   ...props
 }: Props) => {
   const scrollViewRef = useRef<ScrollView>(null);
@@ -95,7 +90,7 @@ export const KeyboardScrollView = ({
     <ScrollView
       ref={scrollViewRef}
       contentContainerStyle={[
-        styles.contentContainer,
+        contentContainerStyle,
         { paddingBottom: additionalPadding },
       ]}
       keyboardShouldPersistTaps="handled"
@@ -125,10 +120,3 @@ export const KeyboardScrollView = ({
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  contentContainer: {
-    flexGrow: 1,
-    backgroundColor: 'pink',
-  },
-});
