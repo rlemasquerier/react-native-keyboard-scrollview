@@ -11,11 +11,17 @@ npm install react-native-keyboard-scrollview
 ## Usage
 
 ```js
-import { multiply } from 'react-native-keyboard-scrollview';
+import { KeyboardScrollView } from 'react-native-keyboard-scrollview';
 
 // ...
 
-const result = await multiply(3, 7);
+<KeyboardScrollView
+    contentContainerStyle={styles.container}
+    additionalScrollHeight={20}
+>
+    <SomeScrollableContent />
+    { /*... */ }
+</KeyboardScrollView>
 ```
 
 ## Contributing
