@@ -5,13 +5,13 @@ A react-native scrollview that will avoid the keyboard when focusing some inputs
 ## Installation
 
 ```sh
-npm install react-native-keyboard-scrollview
+npm install @rlemasquerier/react-native-keyboard-scrollview
 ```
 
 ## Usage
 
 ```js
-import { KeyboardScrollView } from 'react-native-keyboard-scrollview';
+import { KeyboardScrollView } from '@rlemasquerier/react-native-keyboard-scrollview';
 
 // ...
 

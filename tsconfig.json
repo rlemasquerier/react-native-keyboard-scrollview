@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-keyboard-scrollview": ["./src/index"]
+      "@rlemasquerier/react-native-keyboard-scrollview": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

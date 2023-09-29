@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { TextInput } from './components/TextInput';
 import { ContentCard } from './components/ContentCard';
-import { KeyboardScrollView } from 'react-native-keyboard-scrollview';
+import { KeyboardScrollView } from '@rlemasquerier/react-native-keyboard-scrollview';
 
 export default function App() {
   return (
