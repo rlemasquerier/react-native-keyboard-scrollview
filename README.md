@@ -2,6 +2,10 @@
 
 A react-native scrollview that will avoid the keyboard when focusing some inputs
 
+## Preview
+
+![gif preview](docs/preview.gif "Video preview")
+
 ## Installation
 
 ```sh
