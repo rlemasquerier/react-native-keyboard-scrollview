@@ -43,46 +43,52 @@ export const KeyboardScrollView = ({
   );
 
   useEffect(() => {
-    Keyboard.addListener('keyboardDidShow', (frames) => {
-      const keyboardY = frames.endCoordinates.screenY;
-      const keyboardHeight = frames.endCoordinates.height;
-      setAdditionalPadding(keyboardHeight);
-      setTimeout(() => {
-        setIsKeyboardVisible(true);
-      }, 100);
+    const didShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      (frames) => {
+        const keyboardY = frames.endCoordinates.screenY;
+        const keyboardHeight = frames.endCoordinates.height;
+        setAdditionalPadding(keyboardHeight);
+        setTimeout(() => {
+          setIsKeyboardVisible(true);
+        }, 100);
 
-      const currentlyFocusedInput = TextInput.State.currentlyFocusedInput();
-      const currentScrollY = scrollPositionRef.current;
+        const currentlyFocusedInput = TextInput.State.currentlyFocusedInput();
+        const currentScrollY = scrollPositionRef.current;
 
-      currentlyFocusedInput.measureInWindow((_x, y, _width, height) => {
-        const endOfInputY = y + height + androidStatusBarOffset;
-        const deltaToScroll = endOfInputY - keyboardY;
+        currentlyFocusedInput.measureInWindow((_x, y, _width, height) => {
+          const endOfInputY = y + height + androidStatusBarOffset;
+          const deltaToScroll = endOfInputY - keyboardY;
 
-        if (deltaToScroll < 0) return;
+          if (deltaToScroll < 0) return;
 
-        const scrollPositionTarget =
-          currentScrollY + deltaToScroll + additionalScroll;
-        scrollToPosition(scrollPositionTarget, true);
-      });
-    });
+          const scrollPositionTarget =
+            currentScrollY + deltaToScroll + additionalScroll;
+          scrollToPosition(scrollPositionTarget, true);
+        });
+      }
+    );
 
-    Keyboard.addListener('keyboardDidHide', () => {
+    const didHideListener = Keyboard.addListener('keyboardDidHide', () => {
       setAdditionalPadding(0);
       setIsKeyboardVisible(false);
     });
 
-    Keyboard.addListener('keyboardWillHide', (frames) => {
-      // iOS only, scroll back to initial position to avoid flickering
-      const keyboardHeight = frames.endCoordinates.height;
-      const currentScrollY = scrollPositionRef.current;
-      const scrollPositionTarget = currentScrollY - keyboardHeight;
-      scrollToPosition(scrollPositionTarget, true);
-    });
+    const willHideListener = Keyboard.addListener(
+      'keyboardWillHide',
+      (frames) => {
+        // iOS only, scroll back to initial position to avoid flickering
+        const keyboardHeight = frames.endCoordinates.height;
+        const currentScrollY = scrollPositionRef.current;
+        const scrollPositionTarget = currentScrollY - keyboardHeight;
+        scrollToPosition(scrollPositionTarget, true);
+      }
+    );
 
     return () => {
-      Keyboard.removeAllListeners('keyboardDidShow');
-      Keyboard.removeAllListeners('keyboardDidHide');
-      Keyboard.removeAllListeners('keyboardWillHide');
+      didShowListener.remove();
+      didHideListener.remove();
+      willHideListener.remove();
     };
   }, [additionalScroll, androidStatusBarOffset, scrollToPosition]);
 
