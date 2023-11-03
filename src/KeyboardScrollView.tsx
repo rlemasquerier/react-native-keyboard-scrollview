@@ -80,6 +80,13 @@ export const KeyboardScrollView = ({
         // iOS only, scroll back to initial position to avoid flickering
         const keyboardHeight = frames.endCoordinates.height;
         const currentScrollY = scrollPositionRef.current;
+
+        /*
+          Added this early return to avoid a bug with react-navigation, where moving from a screen to another, this event was triggered twice
+          In any case, no need to scroll back if we are already at the top so this early return should be safe
+        */
+        if (currentScrollY <= 0) return;
+
         const scrollPositionTarget = currentScrollY - keyboardHeight;
         scrollToPosition(scrollPositionTarget, true);
       }
