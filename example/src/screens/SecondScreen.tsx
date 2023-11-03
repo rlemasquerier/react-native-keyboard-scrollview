@@ -1,25 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import { KeyboardScrollView } from '@rlemasquerier/react-native-keyboard-scrollview';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import type { MainStackParamsList } from '../navigation/MainStackNavigator';
 import { TextInput } from '../components/TextInput';
 import { ContentCard } from '../components/ContentCard';
 
-export const HomeScreen = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<MainStackParamsList>>();
-
+export const SecondScreen = () => {
   return (
     <View style={styles.appContainer}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Example app</Text>
-        <Pressable onPress={() => navigation.navigate('SecondScreen')}>
-          <Text>Go to second screen</Text>
-        </Pressable>
       </View>
       <KeyboardScrollView
         contentContainerStyle={styles.container}
