@@ -19,6 +19,11 @@ export const SecondScreen = () => {
         <ContentCard />
         <ContentCard />
         <TextInput />
+        <ContentCard />
+        <ContentCard />
+        <TextInput />
+        <ContentCard />
+        <ContentCard />
       </KeyboardScrollView>
     </View>
   );
