@@ -5,6 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { Platform } from 'react-native';
 import { Keyboard, ScrollView, TextInput, StatusBar } from 'react-native';
 
 interface Props extends React.ComponentProps<typeof ScrollView> {
@@ -47,8 +48,12 @@ export const KeyboardScrollView = ({
       'keyboardDidShow',
       (frames) => {
         const keyboardY = frames.endCoordinates.screenY;
-        const keyboardHeight = frames.endCoordinates.height;
-        setAdditionalPadding(keyboardHeight);
+
+        if (Platform.OS === 'ios') {
+          const keyboardHeight = frames.endCoordinates.height;
+          setAdditionalPadding(keyboardHeight);
+        }
+
         setTimeout(() => {
           setIsKeyboardVisible(true);
         }, 100);
