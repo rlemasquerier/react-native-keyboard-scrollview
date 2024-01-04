@@ -1,6 +1,6 @@
 {
   "name": "@rlemasquerier/react-native-keyboard-scrollview",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A react-native scrollview that will avoid the keyboard when focusing some inputs",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
