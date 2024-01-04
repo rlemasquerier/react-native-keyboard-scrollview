@@ -61,7 +61,7 @@ export const KeyboardScrollView = ({
         const currentlyFocusedInput = TextInput.State.currentlyFocusedInput();
         const currentScrollY = scrollPositionRef.current;
 
-        currentlyFocusedInput.measureInWindow((_x, y, _width, height) => {
+        currentlyFocusedInput?.measureInWindow((_x, y, _width, height) => {
           const endOfInputY = y + height + androidStatusBarOffset;
           const deltaToScroll = endOfInputY - keyboardY;
 
