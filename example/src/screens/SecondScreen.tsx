@@ -17,6 +17,7 @@ export const SecondScreen = () => {
         additionalScrollHeight={20}
       >
         <ContentCard />
+        <TextInput editable={false} placeholder="this one is disabled" />
         <ContentCard />
         <TextInput />
         <ContentCard />

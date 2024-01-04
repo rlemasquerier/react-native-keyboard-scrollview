@@ -1,12 +1,18 @@
 import React from 'react';
-import { TextInput as RNTextInput, StyleSheet, View } from 'react-native';
+import {
+  TextInput as RNTextInput,
+  StyleSheet,
+  View,
+  type TextInputProps,
+} from 'react-native';
 
-export const TextInput = () => {
+export const TextInput = (props: TextInputProps) => {
   return (
     <View style={styles.container}>
       <RNTextInput
         style={styles.inputStyle}
         placeholder="type something here"
+        {...props}
       />
     </View>
   );
