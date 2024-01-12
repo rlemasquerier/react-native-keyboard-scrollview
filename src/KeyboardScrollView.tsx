@@ -107,10 +107,8 @@ export const KeyboardScrollView = ({
   return (
     <ScrollView
       ref={scrollViewRef}
-      contentContainerStyle={[
-        contentContainerStyle,
-        { paddingBottom: additionalPadding },
-      ]}
+      contentContainerStyle={[contentContainerStyle]}
+      contentInset={{ bottom: additionalPadding }}
       keyboardShouldPersistTaps="handled"
       onMomentumScrollEnd={(event) => {
         scrollPositionRef.current = event.nativeEvent.contentOffset.y;
